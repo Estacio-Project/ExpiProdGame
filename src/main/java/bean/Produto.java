@@ -1,16 +1,38 @@
 package bean;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Produto {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+public class Produto implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String nome;
 	private String descricao;
 	private Float valor;
+	@Temporal(TemporalType.DATE)
 	private Date data_fabricacao;
+	@Temporal(TemporalType.DATE)
 	private Date data_vencimento;
 	private int quantidade;
 	
+	
+	
+	public Produto() {
+		super();
+	}
 	public Produto(String nome, String descricao, Float valor,
 			Date data_fabricacao, Date data_vencimento, int quantidade) {
 		super();

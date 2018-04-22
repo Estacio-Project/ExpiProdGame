@@ -1,21 +1,48 @@
 package bean;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Conquista {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+@Entity
+public class Conquista implements Serializable {
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String nome;
 	private String descricao;
+	@Temporal(TemporalType.DATE)
 	private Date data_conquista;
 	private Usuario usuario;
+	
+	
+	public Conquista() {
+		super();
+	}
 	public Conquista(String nome, String descricao, Usuario usuario, Date data_conquista) {
 		super();
 		this.nome = nome;
 		this.descricao = descricao;
 		this.usuario = usuario;
 		this.data_conquista = data_conquista;
+	}
+	public Conquista(String nome, String descricao) {
+		// TODO Auto-generated constructor stub
+		this.nome = nome;
+		this.descricao = descricao;
+
+		this.data_conquista =new Date();
 	}
 	public int getId() {
 		return id;
@@ -52,7 +79,7 @@ public class Conquista {
 	@Override
 	public String toString() {
 		return "Conquista [id=" + id + ", nome=" + nome + ", descricao="
-				+ descricao + ", usuario=" + usuario.getLogin() + "]";
+				+ descricao +  ", Usuario[id=" + (usuario != null? usuario.getId() :-1) + "] ]";
 	}
 	
 	

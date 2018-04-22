@@ -29,7 +29,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 
 		 
 		try {
-			conn = SingletonPoolConn.getInstance().checkOut();
+			conn = instanceConnPool;
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, Usuario.getLogin());
 			ps.setString(2, Usuario.getSenha());
@@ -60,7 +60,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 		 Connection conn = null;
 		 	 
 	     try {
-	    	 conn = SingletonPoolConn.getInstance().checkOut();
+	    	 conn = instanceConnPool;
 	         PreparedStatement stmt = conn.prepareStatement(sql);
 	         stmt.setString(1, Usuario.getLogin());
 	         stmt.setString(2, Usuario.getSenha());
@@ -87,7 +87,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 		Connection conn = null;
 		boolean bool =false;
 		  try {
-			  conn = SingletonPoolConn.getInstance().checkOut();
+			  conn = instanceConnPool;
 	             PreparedStatement stmt = conn.prepareStatement("delete " +
 	                     "from usuario where id=?");
 	             stmt.setInt(1, Usuario.getId());
@@ -113,7 +113,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 		Connection conn = null;
 		List<Usuario> Usuarios = new ArrayList<Usuario>();
 		try{
-		conn = SingletonPoolConn.getInstance().checkOut();
+		conn = instanceConnPool;
         PreparedStatement stmt = conn.prepareStatement("select * from usuario");
         ResultSet rs = stmt.executeQuery();
 
@@ -124,6 +124,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
         			rs.getInt("id"),
 					rs.getString("login"),
 					rs.getString("senha")
+					
 					);
             Usuarios.add(Usuario);
         }
@@ -148,7 +149,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 		Connection conn = null;
 		List<Usuario> Usuarios = new ArrayList<Usuario>();
 		try{
-		conn = SingletonPoolConn.getInstance().checkOut();
+		conn = instanceConnPool;
         PreparedStatement stmt = conn.prepareStatement(sql);
         stmt.setString(1, nome );
         ResultSet rs = stmt.executeQuery();
@@ -181,7 +182,9 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 	 
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
+		
 	}
 
+	private static Connection instanceConnPool = SingletonPoolConn.getInstance().checkOut();
 	
 }

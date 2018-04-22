@@ -1,24 +1,64 @@
 package bean;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Fornecedor {
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+@Entity
+public class Fornecedor implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	
 	private int id;
 	private String nome;
-	private int cnpj;
+	private String cnpj;
+		//razao_social
+		//endereco
+		//telefone
+		//email
+		//data_cadastro
+		//data_alteracao
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
-	private List<Armazenamento> armazenamento;
 	
 	
 
-	public Fornecedor(String nome, int cnpj, Usuario usuario,
-			List<Armazenamento> armazenamento) {
+
+
+	
+	public Fornecedor() {
+		super();
+	}
+
+
+
+	public Fornecedor(String nome, String cnpj) {
 		super();
 		this.nome = nome;
 		this.cnpj = cnpj;
-		this.usuario = usuario;
-		this.armazenamento = armazenamento;
+	}
+	
+
+
+	public int getId() {
+		return id;
+	}
+
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 
@@ -35,13 +75,13 @@ public class Fornecedor {
 
 
 
-	public int getCnpj() {
+	public String getCnpj() {
 		return cnpj;
 	}
 
 
 
-	public void setCnpj(int cnpj) {
+	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
 
@@ -59,15 +99,7 @@ public class Fornecedor {
 
 
 
-	public List<Armazenamento> getArmazenamento() {
-		return armazenamento;
-	}
-
-
-
-	public void setArmazenamento(List<Armazenamento> armazenamento) {
-		this.armazenamento = armazenamento;
-	}
+	
 
 
 
@@ -75,7 +107,7 @@ public class Fornecedor {
 	@Override
 	public String toString() {
 		return "Fornecedor [id=" + id + ", nome=" + nome + ", cnpj=" + cnpj
-				+ ", usuario=" + usuario.getLogin() + "]";
+				+ ", Usuario [" + (usuario != null ? usuario.getId():-1) + "] ]";
 	}
 
 	

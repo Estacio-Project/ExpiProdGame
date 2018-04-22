@@ -21,6 +21,10 @@
 	<bean id="alertaDAO" class="repository.impl.AlertaDAOImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
+	
+	<bean id="testDAO" class="repository.impl.TestDAOImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
 
 	
 	<bean id="dataSource"
