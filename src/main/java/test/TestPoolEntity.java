@@ -2,10 +2,11 @@ package test;
 
 import java.util.List;
 
+import jdbc.repository.UsuarioDAO;
+
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import repository.UsuarioDAO;
 import util.SingletonPoolConn;
 import bean.Usuario;
 

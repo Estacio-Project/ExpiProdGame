@@ -4,10 +4,11 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import jdbc.repository.ProdutoDAO;
+
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import repository.ProdutoDAO;
 import bean.Produto;
 
 public class ProdutoApp {

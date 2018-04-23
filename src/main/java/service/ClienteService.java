@@ -1,6 +1,6 @@
 package service;
 
-import util.EntityManagerFactoryThread;
+import repository.EntityManagerFactoryThread;
 import util.EntityName;
 import util.Operacao;
 import bean.Cliente;

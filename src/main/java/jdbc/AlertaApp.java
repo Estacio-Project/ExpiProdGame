@@ -6,10 +6,11 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import jdbc.repository.AlertaDAO;
+
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import repository.AlertaDAO;
 import bean.Alerta;
 
 public class AlertaApp {

@@ -1,4 +1,4 @@
-package repository.impl;
+package jdbc.repository.impl;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -11,7 +11,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import repository.AlertaDAO;
+import jdbc.repository.AlertaDAO;
 import bean.Alerta;
 import bean.MonitorConsumo;
 import bean.Usuario;

@@ -6,23 +6,23 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.2.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd">
 
 
-	<bean id="usuarioDAO" class="repository.impl.UsuarioDAOImpl">
+	<bean id="usuarioDAO" class="jdbc.repository.impl.UsuarioDAOImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
-	<bean id="clienteDAO" class="repository.impl.ClienteDAOImpl">
+	<bean id="clienteDAO" class="jdbc.repository.impl.ClienteDAOImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
-	<bean id="produtoDAO" class="repository.impl.ProdutoDAOImpl">
+	<bean id="produtoDAO" class="jdbc.repository.impl.ProdutoDAOImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
-	<bean id="alertaDAO" class="repository.impl.AlertaDAOImpl">
+	<bean id="alertaDAO" class="jdbc.repository.impl.AlertaDAOImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	
-	<bean id="testDAO" class="repository.impl.TestDAOImpl">
+	<bean id="testDAO" class="jdbc.repository.impl.TestDAOImpl">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 

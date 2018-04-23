@@ -2,7 +2,7 @@ package util;
 
 public interface EntityName {
 	public static final String ALERTA = "Alerta";
-	public static final String ARMAZENAMENTO = "Armezenamento";
+	public static final String ARMAZENAMENTO = "Armazenamento";
 	public static final String CLIENTE = "Cliente";
 	public static final String CONQUISTA = "Conquista";
 	public static final String BADGE = "Badge";

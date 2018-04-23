@@ -1,4 +1,4 @@
-package repository.impl;
+package jdbc.repository.impl;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -11,7 +11,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-import repository.ProdutoDAO;
+import jdbc.repository.ProdutoDAO;
 import util.SingletonPoolConn;
 import bean.Produto;
 

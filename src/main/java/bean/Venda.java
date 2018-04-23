@@ -1,36 +1,67 @@
 package bean;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Venda {
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+@Entity
+public class Venda implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
 	private String nome;
 	
-	private String desconto;
-	
-	private Float pontuacao;
+	private int desconto;
 	private boolean promocao;
 	private Date date_inicio_promocao;
 	private Date date_final_promocao;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "fornecedor_id")
 	private Fornecedor fornecedor;
-	private Produto produto;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
 	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "produto_id")
+	private Produto produto;
+	//data_criacao
+	//data_modificacao
 	
 	
+
+	public Venda() {
+		super();
+	}
+
 	
-	public Venda(int id, String nome, String desconto, Float pontuacao,
+	public Venda( String nome, int desconto,
 			boolean promocao, Date date_inicio_promocao,
 			Date date_final_promocao) {
 		super();
-		this.id = id;
+	
 		this.nome = nome;
 		this.desconto = desconto;
-		this.pontuacao = pontuacao;
 		this.promocao = promocao;
 		this.date_inicio_promocao = date_inicio_promocao;
 		this.date_final_promocao = date_final_promocao;
 	}
+
+
+
+
 
 
 
@@ -63,30 +94,18 @@ public class Venda {
 
 
 
-	public String getDesconto() {
+	public int getDesconto() {
 		return desconto;
 	}
 
 
 
 
-	public void setDesconto(String desconto) {
+	public void setDesconto(int desconto) {
 		this.desconto = desconto;
 	}
 
 
-
-
-	public Float getPontuacao() {
-		return pontuacao;
-	}
-
-
-
-
-	public void setPontuacao(Float pontuacao) {
-		this.pontuacao = pontuacao;
-	}
 
 
 
@@ -181,9 +200,10 @@ public class Venda {
 				+ ", promocao=" + promocao
 				+ ", date_promocao=" + date_inicio_promocao
 				+ ", data final promocao=" + date_final_promocao
-				+ ", desconto=" + desconto + ", nome=" + nome + ", pontuacao="
-				+ pontuacao + ", fornecedor=" + fornecedor.getNome() + ", produto="
-				+ produto.getNome() + "]";
+				+ ", desconto=" + desconto + ", nome=" + nome + ","
+				+ ",Produto[id="+ (produto != null? produto.getId() :-1)+ "],"
+						+ " Cliente[id=" + (cliente != null? cliente.getId() :-1) + "],"
+						+ " Forncedor[id=" + (fornecedor != null? fornecedor.getId() :-1) + "] ]";
 	}
 	
 	

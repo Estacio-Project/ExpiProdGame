@@ -15,6 +15,8 @@
 	<class>bean.Produto</class>
 	<class>bean.Badge</class>
 	<class>bean.Conquista</class>
+	<class>bean.Armazenamento</class>
+	<class>bean.Venda</class>
 
     <properties>
         <property name="hibernate.connection.pool_size" value="3"/>

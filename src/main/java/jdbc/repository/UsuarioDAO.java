@@ -1,4 +1,4 @@
-package repository;
+package jdbc.repository;
 
 import java.util.List;
 

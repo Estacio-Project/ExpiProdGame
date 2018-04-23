@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.hibernate.cfg.Configuration;
 
-import util.EntityManagerFactoryThread;
+import repository.EntityManagerFactoryThread;
 import bean.Usuario;
 
 public class TestEntityManagerThread {
